@@ -19,16 +19,19 @@ public class Vwin_Logic {
 		if(place[row]!=0){
 			System.out.println("Error, row is full");
 		}
-		int position=place[row];
+		int position=row;
 		while(true){
 			if(position<=34){
 				if(place[position+7]==0){
 					position+=7;
 				}
+				else{
+					setCircle(position, color);
+					break;
+				}
 			}
 			else{
 				setCircle(position, color);
-				changeColor(color);
 				break;
 			}
 		}
@@ -36,7 +39,8 @@ public class Vwin_Logic {
 	}
 	private void setCircle(int position, int color){
 		place[position]=color;
-		System.out.println("Setting Circle on: " + position +" color: "+ color);		
+		System.out.println("Setting Circle on: " + position +" color: "+ color);
+		changeColor(color);
 	}
 	private void changeColor(int color){
 		if(color==1){
@@ -46,6 +50,9 @@ public class Vwin_Logic {
 			this.color=1;
 			System.out.println("Changing Color to Red");
 		}
+	}
+	public int getPlace(int pos){
+		return place[pos];
 	}
 	private void firstMove(){
 		this.color=1;

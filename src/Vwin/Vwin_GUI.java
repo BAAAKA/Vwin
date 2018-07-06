@@ -6,5 +6,6 @@ public class Vwin_GUI {
 	public Vwin_GUI(){
 		l.whereCircle(0);
 		l.whereCircle(0);
+		l.whereCircle(0);
 	}
 }
