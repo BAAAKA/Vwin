@@ -67,6 +67,46 @@ public class Vwin_Logic {
 	}
 	private void testWinningPosition(){
 		System.out.println("Test if anyone won...");
+		horzontalTest();
+		vertikalTest();
+	}
+	public void vertikalTest(){
+		System.out.println("Vertikal test...");
+
+			int plus=0;
+			int[] nrTest=new int[4];
+			while(true){
+				if(plus>20){
+					plus-=20;
+				}
+			else{
+				boolean won=true;
+	
+				nrTest[0]=getPlace(0+plus);
+				nrTest[1]=getPlace(7+plus);
+				nrTest[2]=getPlace(14+plus);
+				nrTest[3]=getPlace(21+plus);
+				int first = nrTest[0];
+//				System.out.println("plus " + plus);
+//				System.out.println("first " + first);
+//				System.out.println(nrTest[0] +""+ nrTest[1] +""+ nrTest[2] +""+ nrTest[3]);
+
+				for(int i = 1; i < 4 && won; i++)
+				{
+				  if (nrTest[i] != first) won = false;
+				}
+				if (won && first != 0) winMessage();
+				if(plus==20) break;
+				plus+=7;
+
+			}
+
+		}
+		
+		
+	}
+	public void horzontalTest(){
+		System.out.println("Horizontal test...");
 		int plus=0;
 		int[] nrTest=new int[4];
 		while(true){
@@ -84,9 +124,9 @@ public class Vwin_Logic {
 				plus++;
 	
 				int first = nrTest[0];
-				System.out.println("plus " + plus);
-				System.out.println("first " + first);
-				System.out.println(nrTest[0] +""+ nrTest[1] +""+ nrTest[2] +""+ nrTest[3]);
+//				System.out.println("plus " + plus);
+//				System.out.println("first " + first);
+//				System.out.println(nrTest[0] +""+ nrTest[1] +""+ nrTest[2] +""+ nrTest[3]);
 				for(int i = 1; i < 4 && won; i++)
 				{
 				  if (nrTest[i] != first) won = false;
@@ -94,7 +134,6 @@ public class Vwin_Logic {
 				if (won && first != 0) winMessage();
 			}
 		}
-		
 	}
 
 	
@@ -110,6 +149,7 @@ public class Vwin_Logic {
 		System.out.println("WIN");
 		System.out.println("r/wholesomesyuri ");
 		System.out.println("********************************************");
+		System.exit(0);
 
 	}
 	
